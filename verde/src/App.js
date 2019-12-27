@@ -48,18 +48,11 @@ getData = (e) => {
 
       fetch(uriString, {mode: 'cors' })
       .then(res => res.json())
-      .then(data => this.setState({ tempData: data}));  
-      
-   extractRetrievedData();
+      .then(data => this.setState({ tempData: data}))    
 }
 
-extractRetrievedData = () => {
-  console.log("in extract daya")
-}
-
-  render() {
-  //  console.log("App data",this.state.tempData);
-    const hourly  = {...this.state.tempData}
+componentDidUpdate = () => {
+  const hourly  = {...this.state.tempData}
     
     
     const peopleArray = {...hourly}
@@ -71,59 +64,78 @@ extractRetrievedData = () => {
    // let peopleArray3 = Object.assign(peopleArray2[5])
    // let peopleArray4 = Object.entries(peopleArray3)
 
-  /* var x =  peopleArray2.map((i) => {
-      return(console.log("4", peopleArray2))
-    })
-    */
+   //var x=  peopleArray2.map((i) => {
+   //   return(console.log("4", peopleArray2))
+   // })
+    
     var hourlyTemp =[]
     var hourlyTime = []
     var dailyTemp =[]
     var dailyTime = []
-    var timezone = '';
+    var timeZone = '';
     var offset = '';
 
-  //  timezone = peopleArray4[2].timezone;
-  //    console.log("@@@@", timezone)
-  //  this.setState({timeZone:peopleArray4[2][1]})
-    for(var x in peopleArray4){
+    timeZone = peopleArray4[2][1].timezone;
+    console.log("@@@@", peopleArray4)
+      
+  
+    for(var m in peopleArray4){
 
-       console.log("****", peopleArray4[x][0])
-      timezone = peopleArray4[2][1];
+      // console.log("****", peopleArray4[m][0])
+    //  timeZone = peopleArray4[2][1];
+    //  console.log("!!!!", timeZone)
+    /*  this.setState({timeZone:timeZone})  */
     
-      switch (peopleArray4[x][0]){
+      switch (peopleArray4[m][0]){
+        case 'timezone':
+            console.log("timezone found", peopleArray4[m][1])
+           // for (var tz in peopleArray4[m][1].timezone){
+              timeZone = peopleArray4[m][1]
+              this.setState({timeZone:timeZone})
+              console.log(timeZone)
+           // }  
+          break;
         case 'hourly':
-            for (var a in peopleArray4[x][1].data){
-              hourlyTime.push(peopleArray4[x][1].data[a].time)
-              hourlyTemp.push(peopleArray4[x][1].data[a].temperature)
+            for (var a in peopleArray4[m][1].data){
+              hourlyTime.push(peopleArray4[m][1].data[a].time)
+              hourlyTemp.push(peopleArray4[m][1].data[a].temperature)
             }  
           break;
         case 'daily':
-          for (var b in peopleArray4[x][1].data){
-                dailyTime.push(peopleArray4[x][1].data[b].time)
-                dailyTemp.push(peopleArray4[x][1].data[b].temperatureHigh);
+          for (var b in peopleArray4[m][1].data){
+                dailyTime.push(peopleArray4[m][1].data[b].time)
+                dailyTemp.push(peopleArray4[m][1].data[b].temperatureHigh);
                 
               }
           break;
           case 'offset':  
-           offset = peopleArray4[x][1];
+           offset = peopleArray4[m][1];
+           
+          // console.log(offset)
            break; 
         default:
           break;
               
       }; //end of switch 
- 
-    } // end of fon -in loop
+    }  
+
+  //  this.setState({timeZoneOffset:offset})
+}
+
+  render() {
+
+    hourlyTime = ''
+  
+     // end of fon -in loop
    // this.setState({timeZone: timezone});
         
       //   console.log(dailyTemp)
       
-    
-
-    
    // var tempReading = this.state.tempData.map((temp) => { 
      // return ( console.log(temp))
       // console.log(peopleArray)
   //  });
+
    
     return (
       <Fragment>
