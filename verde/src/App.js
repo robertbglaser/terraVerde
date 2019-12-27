@@ -105,7 +105,7 @@ extractRetrievedData = () => {
               }
           break;
           case 'offset':  
-           offset = peopleArray4[x][1]; 
+           offset = peopleArray4[x][1];
            break; 
         default:
           break;
