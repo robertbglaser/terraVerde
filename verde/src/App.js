@@ -119,7 +119,6 @@ extractRetrievedData = () => {
       
     
 
-
     
    // var tempReading = this.state.tempData.map((temp) => { 
      // return ( console.log(temp))
