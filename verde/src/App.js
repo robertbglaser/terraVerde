@@ -1,6 +1,10 @@
 /* eslint-disable no-undef */
 import React, { Component,Fragment } from 'react';
 import HourlyPlot from './HourlyPlot';
+import * as moment from 'moment';
+import timezone from'moment-timezone';
+//import convertUTC from './ConvertUTC'
+import { ConvertUTC } from './ConvertUTC';
 
 export class App extends Component {
   constructor(props){
@@ -31,6 +35,8 @@ handleSelectScale = (e) => {
   this.setState({scale:e.target.value});
 }
 
+
+
 getData = (e) => {
 
   // https://api.darksky.net/forecast/[key]/[latitude],[longitude]
@@ -48,7 +54,10 @@ getData = (e) => {
 
       fetch(uriString, {mode: 'cors' })
       .then(res => res.json())
-      .then(data => this.setState({ tempData: data}))    
+      .then(data => this.setState({ tempData: data}));
+      
+
+
 }
 
 componentDidUpdate = () => {
@@ -75,8 +84,8 @@ componentDidUpdate = () => {
     var timeZone = '';
     var offset = '';
 
-    timeZone = peopleArray4[2][1].timezone;
-    console.log("@@@@", peopleArray4)
+   // timeZone = peopleArray4[2][1].timezone;
+   // console.log("@@@@", peopleArray4)
       
   
     for(var m in peopleArray4){
@@ -91,7 +100,7 @@ componentDidUpdate = () => {
             console.log("timezone found", peopleArray4[m][1])
            // for (var tz in peopleArray4[m][1].timezone){
               timeZone = peopleArray4[m][1]
-              this.setState({timeZone:timeZone})
+             // this.setState({timeZone:timeZone})
               console.log(timeZone)
            // }  
           break;
@@ -111,20 +120,26 @@ componentDidUpdate = () => {
           case 'offset':  
            offset = peopleArray4[m][1];
            
-          // console.log(offset)
            break; 
         default:
           break;
               
       }; //end of switch 
     }  
-
+    //moment.tz(1412144245453, 'America/Los_Angeles').format('MM/DD/YYYY h:mm a')
+   // var timeUTC = 1577502000;
+   // var convertedTime = moment.tz(timeUTC, timeZone).format('h:mm a');
+   // console.log(convertedTime, timeZone);
   //  this.setState({timeZoneOffset:offset})
+  // var pstTime = ConvertUTC(hourlyTime, timeZone);
+   //console.log("in App.js ", pstTime);
 }
+
+
 
   render() {
 
-    hourlyTime = ''
+
   
      // end of fon -in loop
    // this.setState({timeZone: timezone});
