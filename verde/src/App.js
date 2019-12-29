@@ -7,6 +7,7 @@ import timezone from'moment-timezone';
 import { ConvertUTC } from './ConvertUTC';
 import { convertToCelsicus } from './convertToCelsius';
 import convertToKelvin from './convertToKelvin'
+import { Button, Form, FormGroup, Label, Input, ButtonGroup } from 'reactstrap';
 
 export class App extends Component {
   constructor(props){
@@ -172,32 +173,38 @@ componentDidUpdate = () => {
 
    
     return (
-      <Fragment>
-            <>    
-            <label>Enter your Latitude here</label> 
-            <input type="text" name="lat" value={this.state.lat} onChange={this.handleLat}/> 
-            </>
+      <div className="container">
+            <Form>
+              <FormGroup row>  
+                <Label>Enter your Latitude here</Label> {'\u00A0'}
+                <Input type="text" name="lat" value={this.state.lat} onChange={this.handleLat}/> 
+                </FormGroup>
+      
             <br/>
-            <>
-            <label>Enter your longitude here</label> 
-            <input type="text" name='long' value={this.state.long} onChange={this.handleLong}/>
-            </>
-            <>
+              <FormGroup row> 
+                <Label>Enter your longitude here</Label> {'\u00A0'}
+                <Input type="text" name='long' value={this.state.long} onChange={this.handleLong} className="offset-sm-1"/>
+              </FormGroup>
+           
             <br/>
-            <label>Please enter your preferred Tempauture Scale</label> 
-           <select value={this.state.scale} onChange={this.handleSelectScale}>
-               <option value=''> Select one</option>
-               <option value='c' >Celsisus</option>
-               <option value='f' >Fahrenheit</option>
-               <option value='k' >Kelvin</option>
-           </select>
-            </>
+            <FormGroup row> 
+                <Label>Please enter your preferred Tempauture Scale</Label> {'\u00A0'}
+                <Input type="select" value={this.state.scale} onChange={this.handleSelectScale}>
+                  <option value=''> Select one</option>
+                  <option value='c' >Celsisus</option>
+                  <option value='f' >Fahrenheit</option>
+                  <option value='k' >Kelvin</option>
+              </Input>
+           </FormGroup>
             <br/>
+          <ButtonGroup>
+            <Button type="submit" color="default" onClick={this.getData}>Get Forcast</Button>
+          </ButtonGroup>
 
-            <button type="submit" onClick={this.getData}>Get Forcast</button>
-            <HourlyPlot testData = {this.state.tempData} scale={this.state.scale}/>
 
-            </Fragment>
+            <HourlyPlot testData = {this.state.tempData} scale={this.state.scale}/> 
+            </Form>
+            </div>
     )
   }
 }
