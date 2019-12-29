@@ -1,14 +1,13 @@
 function convertToKelvin(temp) {
 
-    console.log("kelvin")
     const fourHundredFiftyNine = 459.67;
-    let convertedToKelvin = temp.map((tempBase) => { 
-        return (
-            ((tempBase.temp + fourHundredFiftyNine) * 0.555555555) 
-        )
-      }); 
-    
-    console.log(convertedToKelvin)
+    var converted = 0;
+    let convertedToKelvin =[]
+    for (var x in temp){
+       converted = (temp[x] + fourHundredFiftyNine) * 0.555555555; 
+       convertedToKelvin.push(Math.round(converted * 100) / 100); 
+        
+      }; 
     
     return convertedToKelvin;
 }

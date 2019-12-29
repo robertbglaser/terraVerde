@@ -5,6 +5,8 @@ import * as moment from 'moment';
 import timezone from'moment-timezone';
 //import convertUTC from './ConvertUTC'
 import { ConvertUTC } from './ConvertUTC';
+import { convertToCelsicus } from './convertToCelsius';
+import convertToKelvin from './convertToKelvin'
 
 export class App extends Component {
   constructor(props){
@@ -131,8 +133,25 @@ componentDidUpdate = () => {
    // var convertedTime = moment.tz(timeUTC, timeZone).format('h:mm a');
    // console.log(convertedTime, timeZone);
   //  this.setState({timeZoneOffset:offset})
-  // var pstTime = ConvertUTC(hourlyTime, timeZone);
-   //console.log("in App.js ", pstTime);
+   var pstTime = ConvertUTC(hourlyTime, timeZone);
+
+   // the assumption here. The default temperature scale is Fahrenheit
+    var chartHoulyData = [];
+   switch (this.state.scale){
+    case "c":
+      var hourlyTempConvertedToCelsius = convertToCelsicus(hourlyTemp)
+      var chartHoulyData = hourlyTempConvertedToCelsius;
+      break;
+    
+    case 'k':
+      var hourlyTempConvertedToKelvin = convertToKelvin(hourlyTemp)
+      var chartHoulyData = hourlyTempConvertedToKelvin;
+      break
+    default:
+      chartHoulyData = hourlyTemp;
+
+
+}
 }
 
 
