@@ -3,22 +3,20 @@ import * as d3 from 'd3';
 
 
 class BarChart extends Component {
-  
-  
 
-    render() {
-
-
-    
-
-
-      
-        return (
-            <div>
-                
-            </div>
-        )
-    }
+  componentDidMount() {
+    const data = [ 2, 4, 2, 6, 8 ]
+    this.drawBarChart(data)
 }
+drawBarChart(data)  {}
+render() { 
+  
+  return (
+  
+  <div ref="canvas"></div> 
 
-export default BarChart
+  )}
+}
+  
+
+export default BarChart;
