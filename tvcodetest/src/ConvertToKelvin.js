@@ -12,4 +12,4 @@ function convertToKelvin(temp) {
     return convertedToKelvin;
 }
 
-export default convertToKelvin
+export default convertToKelvin   
