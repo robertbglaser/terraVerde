@@ -2,7 +2,7 @@
 
 
 export function convertToCelsicus(temp) {
-    console.log(temp);
+    console.log(temp)
     const thirtyTwo = 32;
     var converted = 0;
     let convertedToCelsius =[]
