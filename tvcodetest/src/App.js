@@ -32,6 +32,7 @@ class App extends Component {
     this.setState({scale:e.target.value});
   }
 
+  
  
   render () { 
   return (

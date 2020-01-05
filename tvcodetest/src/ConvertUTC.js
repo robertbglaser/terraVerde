@@ -1,7 +1,6 @@
 import * as moment from 'moment';
 
 
-
 export function ConvertUTC(time, timeZone){
  var convertedTime =[]
  
