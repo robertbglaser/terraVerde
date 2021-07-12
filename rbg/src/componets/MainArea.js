@@ -8,7 +8,7 @@ function MainArea() {
         <div className="container">
             <TextInput type='text'
             id="search"
-            className="searchArea"
+            className="searchArea" 
             name="searchArea"
             placeholder='Search Input'
             />

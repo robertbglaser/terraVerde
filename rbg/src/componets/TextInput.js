@@ -14,7 +14,7 @@ function TextInput(props) {
                 placeholder={placeholder}
                 onChange={() =>{console.log("hi, I am alive")}}
             />
-
+ 
         </div> 
     )
 }

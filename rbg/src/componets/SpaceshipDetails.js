@@ -17,7 +17,7 @@ function SpaceshipDetails(data) {
             <h2>Films</h2>
 
 
-            <h2>Pilots</h2>
+            <h2>Pilots</h2> 
 
 
 

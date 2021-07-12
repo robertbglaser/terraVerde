@@ -20,7 +20,7 @@ function SpaceshipContent() {
     const handleClick = (e) =>{
       // console.log("a click has been heard " , e.target.id)
      // console.log(data[e.target.id][1]); 
-        SpaceshipDetails(data[e.target.id][1]) 
+        SpaceshipDetails(data[e.target.id][1])  
 
     } 
 
