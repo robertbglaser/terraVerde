@@ -20,9 +20,9 @@ function SpaceshipContent() {
     const handleClick = (e) =>{
       // console.log("a click has been heard " , e.target.id)
      // console.log(data[e.target.id][1]); 
-        SpaceshipDetails(data[e.target.id][1])
+        SpaceshipDetails(data[e.target.id][1]) 
 
-    }
+    } 
 
     const entryLine1 = data.map((item, index) => {
         let numPilots = item[1].pilots.length ;

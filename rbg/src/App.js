@@ -18,7 +18,7 @@ function App() {
       <NavBar/>
       <MainArea/>
       
-    </div>
+    </div> 
   );
 }
 

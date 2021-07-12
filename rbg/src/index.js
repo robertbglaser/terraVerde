@@ -10,7 +10,7 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Switch>
-        <Route exact path = '/' component={ App}/>
+        <Route exact path = '/' component={ App}/> 
         <Route exact path = '/SpaceshipDetails' component={() => SpaceshipContent}/>
       </Switch>
     </BrowserRouter>

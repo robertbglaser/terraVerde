@@ -20,6 +20,7 @@ function SpaceshipDetails(data) {
             <h2>Pilots</h2>
 
 
+
             
         </div>
     )

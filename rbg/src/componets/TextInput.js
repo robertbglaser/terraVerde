@@ -15,7 +15,7 @@ function TextInput(props) {
                 onChange={() =>{console.log("hi, I am alive")}}
             />
 
-        </div>
+        </div> 
     )
 }
 
